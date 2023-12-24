@@ -1,0 +1,173 @@
+.visual-space::-webkit-scrollbar, .tool-content::-webkit-scrollbar{
+  width: 18px;
+  background-color: rgba(36, 33, 33, 0.6);
+}
+
+.visual-space::-webkit-scrollbar-thumb, .tool-content::-webkit-scrollbar-thumb{
+  background-color: rgb(174, 182, 152);
+  border-radius: 8px;
+}
+
+.visual-space::-webkit-scrollbar-corner{
+  background-color: rgb(36, 33, 33, 0.6);
+}
+
+.tool-content::-webkit-scrollbar{
+  width: 10px;
+}
+
+.tool-bar{
+  position: fixed;
+  right: -192px;
+  z-index: 20;
+}
+
+.tool{
+  position: relative;
+  width: 200px;
+  transition: transform 1.2s;
+}
+
+.tool-content{
+  overflow-y: auto;
+}
+
+.ops{
+  height: 60vh;
+  background-color: rgb(23, 23, 34);
+  border-left: solid 8px black;
+  display: flex;
+  flex-direction: column;
+}
+
+.styles{
+  height: 40vh;
+  background-color: rgb(31, 23, 23);
+  border-left: solid 8px rgb(24, 24, 24);
+}
+
+.styles-content{
+  height: 100%;
+}
+
+.open{
+  transform: translateX(-192px);
+}
+
+.icon{
+  border: 0;
+  outline: none;
+  position: absolute;
+  width: 30px;
+  z-index: -1;
+  height: 40px;
+  padding-left: 16px;
+  letter-spacing: 16px;
+  border-bottom-left-radius: 30px;
+  border-top-left-radius: 30px;
+  font-size: 18px;
+  color: aliceblue;
+  white-space: pre;
+  overflow: hidden;
+  user-select: none;
+}
+
+.icon-container{
+  width: max-content;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-30px);
+}
+
+.text-light{
+  color: aliceblue;
+  margin: 3px;
+  margin-left: 1px;
+  user-select: none;
+}
+
+.text-dark{
+  color: rgb(29, 28, 28);
+  user-select: none;
+}
+
+.node-text{
+  transform: translateY(60%);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.input-field{
+  border: solid 1px white;
+  outline: none;
+  background-color: rgb(213, 236, 195);
+  width: 50px;
+  padding: 2px;
+  height: 24px;
+  font-size: 20px;
+}
+
+.button, .button-orange{
+  outline: none;
+  background-color: rgb(80, 172, 76);
+  border: 0;
+  color: whitesmoke;
+  min-width: 40px;
+  height: 24px;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size: 16px;
+  transition: all 0.25s;
+  border: 1px solid rgb(117, 201, 117);
+  transform: translateY(-2px);
+  user-select: none;
+}
+
+.button:hover{
+  background-color: rgb(102, 211, 87);
+}
+
+.button:active{
+  background-color: rgb(139, 230, 112);
+}
+
+.ll-ops, .styles-content{
+  padding: 6px;
+}
+
+.button-orange{
+  background-color: rgb(194, 53, 53);
+  border: 1px solid rgb(197, 85, 85);
+}
+
+.button-orange:hover{
+  background-color: rgb(224, 92, 92);
+}
+
+.button-orange:active{
+  background-color: rgb(238, 56, 56);
+}
+
+.value{
+  position: absolute;
+  user-select: none;
+}
+
+.error{
+  color: rgb(230, 75, 75);
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.heading{
+  font-size: 22px;
+  color: rgb(189, 217, 241);
+  user-select: none;
+}
+
+#node-color, #node-value-color{
+  width: 20px;
+  height: 20px;
+  outline: none;
+}
+

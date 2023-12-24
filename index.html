@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ui.css">
+  <title>linked-list</title>
+</head>
+<body>
+  <div id="root">
+    <div class="content">
+
+      <div class="size-container">
+        <div style="color: white;">Size: </div>
+        <div id="size">0</div>
+      </div>
+
+      <div class="visual-space">
+        <div class="row left-right">
+          <div class="add-head">
+            <div><input type="text" class="temp-input-field" placeholder="value" value="head" spellcheck="false"></div>
+            <div class="plus" onclick="addHead()">+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-bar">
+        <div class="ops tool">
+          <div class="icon-container">
+            <button class="icon" style="background-color: black;" 
+            onclick="toggleOpen(this.parentElement.parentElement)">Linked-List</button>
+          </div>
+
+          <div class="ll-ops tool-content">
+            <div>
+              <div>
+                <button onclick="init(addRandomNodes)" class="button">Add Random Nodes</button>
+              </div>
+              <br>
+              <div class="heading">Custom Node</div>
+              <div>
+                <div class="text-light">Node Value</div>
+                <input type="text" id="node-value" value="" class="input-field" spellcheck="false" placeholder="val">
+                <div class="text-light">Index</div>
+                <input type="number" id="index" value="0" class="input-field">
+                <button onclick="init(addNodeByInputBox)" class="button">Add Node</button>
+                <div class="add-error error"></div>
+              </div>
+            </div>
+            <br>
+            <div>
+              <div class="text-light">Set no of Columns</div>
+              <input type="number" id="max-columns" min="1" class="input-field" value="10">
+              <button id="max-column-input-btn" class="button" onclick="init(setMaxColumn)">set</button>              
+            </div>
+            <br>
+            <div class="heading">Remove Node(s)</div>
+            <div>
+              <div class="text-light">Index to remove</div>
+              <input type="number" id="remove-index" class="input-field">
+              <div class="text-light">remove count</div>
+              <input type="number" id="count" class="input-field">
+              <button class="button-orange" onclick="init(removeNode)">Remove</button>
+              <div class="remove-error error"></div>
+            </div>
+            <div>
+              <button class="button-orange" style="margin-top: 6px; width: 120px;" onclick="init(emptyList)">Empty List</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="styles tool">
+          <div class="icon-container">
+            <button class="icon" style="background-color: rgb(24, 24, 24);" 
+            onclick="toggleOpen(this.parentElement.parentElement)">STYLES</button>
+          </div>
+
+          <div class="styles-content tool-content">
+              <div class="heading">Node Customize</div>
+              <br>
+              <div>
+                <div>
+                  <label class="text-light">Node Color</label>
+                  <input type="color" id="node-color">
+                </div>
+                <br>
+                <label class="text-light">Node Value Color</label>
+                <input type="color" id="node-value-color">
+              </div>
+              
+              <div>
+                <div id="current-speed" class="text-light">Speed: 0.5</div>
+                <input type="range" id="speed" min="0.5" max="5" step="0.01" oninput="setSpeed(this.value)" value="0.5"/>
+              </div>
+             
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <script src="./js/canvas.js"></script>
+  <script src="./js/linkedList.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/ui.js"></script>
+</body>
+</html>
