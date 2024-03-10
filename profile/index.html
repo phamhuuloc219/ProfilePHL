@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile PHL Page</title>
+    <link rel="icon" href="https://imdezcode.files.wordpress.com/2020/02/imdezcode-logo.png">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FontAwesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar top -->
+    <div class="navbar-top">
+        <div class="title">
+            <h1>Profile</h1>
+        </div>
+
+        <!-- Navbar -->
+        <ul>
+            <li>
+                <a href="#message">
+                    <span class="icon-count">21</span>
+                    <i class="fa fa-envelope fa-2x"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#notification">
+                    <span class="icon-count">19</span>
+                    <i class="fa fa-bell fa-2x"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- End -->
+    </div>
+    <!-- End -->
+
+    <!-- Sidenav -->
+    <div class="sidenav">
+        <div class="profile">
+            <img src="https://imdezcode.files.wordpress.com/2020/02/imdezcode-logo.png" alt="" width="100" height="100">
+
+            <div class="name">
+                Pham Huu Loc
+            </div>
+            <div class="job">
+                Software Developer
+            </div>
+        </div>
+
+        <div class="sidenav-url">
+            <div class="url">
+                <a href="#profile" class="active">Profile</a>
+                <hr align="center">
+            </div>
+            <div class="url">
+                <a href="#settings">QR Code</a>
+                <hr align="center">
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+
+    <!-- Main -->
+    <div class="main">
+        <h2>IDENTITY</h2>
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <div class="table-reponsive">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Name</td>
+                                <td>:</td>
+                                <td>Pham Huu Loc</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>:</td>
+                                <td>phamhuuloc2192003@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td>:</td>
+                                <td>Cam Lam, Khanh Hoa, Vietnam</td>
+                            </tr>
+                            <tr>
+                                <td>Hobbies</td>
+                                <td>:</td>
+                                <td>Music, Football</td>
+                            </tr>
+                            <tr>
+                                <td>Job</td>
+                                <td>:</td>
+                                <td>Software Developer</td>
+                            </tr>
+                            <tr>
+                                <td>Skill</td>
+                                <td>:</td>
+                                <td>Python, Flutter, C/C++, C#, JavaScript, HTML, CSS, Java</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <h2>SOCIAL MEDIA</h2>
+        <div class="card">
+            <div class="card-body">
+                <i class="fa fa-pen fa-xs edit"></i>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/phloc2193" class="fa-stack fa-sm">
+                        <span>
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <a href="https://twitter.com/phloc2192003" class="fa-stack fa-sm">
+                        <span>
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <a href="https://www.instagram.com/21st_coluuhmahp_sep" class="fa-stack fa-sm">
+                        <span>
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <a href="https://github.com/phamhuuloc219" class="fa-stack fa-sm">
+                        <span>
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                    <a href="tel:0374362577" class="fa-stack fa-sm">
+                        <span>
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-whatsapp fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var profileLink = document.querySelector('a[href="#profile"]');
+            var settingsLink = document.querySelector('a[href="#settings"]');
+
+            profileLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                alert("You are on the profile page!");
+            });
+
+            settingsLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                window.location.href = "settings.html";
+            });
+        });
+    </script>
+
+</body>
+</html>
