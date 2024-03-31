@@ -4,6 +4,8 @@
 * {
     margin: 0;
     box-sizing: border-box; /* Thêm dòng này để đảm bảo kích thước phần tử tính cả border và padding */
+    font-family: 'Dancing Script', cursive;
+    font-size: medium;
 }
 
 body {
@@ -23,7 +25,7 @@ body {
 }
 
 .title {
-    font-family: 'Dancing Script', cursive;
+    
     padding-top: 15px;
     padding-left: 700px;
     order: 1; /* Sắp xếp thành phần này ở vị trí đầu tiên */
