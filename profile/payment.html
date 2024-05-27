@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="icon" href="https://imdezcode.files.wordpress.com/2020/02/imdezcode-logo.png">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="style.css">
+
+    <script src="main.js"></script>
+
+    <!-- FontAwesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <!-- Navbar top -->
+    <div class="navbar-top">
+        <div class="title">
+            <!-- clock-real-time -->
+            <div class="clock-real-time">
+                <div class="codepro-time">
+                    <span id="codepro-hour"></span>
+                    <span id="codepro-date"></span>
+                </div>
+                <style>
+                      .codepro-time{text-align:center;}
+                      #codepro-hour{font-weight:400;display:block;font-size:30px;margin: 0 0 5px;letter-spacing:5px;}
+                </style>
+                <script type="text/javascript">
+                    var myVar = setInterval(function() {
+                          myTimer()
+                    }, 1000);
+                    function myTimer() {
+                          var d = new Date();
+                          var t = d.toLocaleTimeString();
+                          document.getElementById("codepro-hour").innerHTML = t;
+                    }
+                    n = new Date();
+                    if (n.getTimezoneOffset() == 0) t = n.getTime() + (7 * 60 * 60 * 1000);
+                    else t = n.getTime();
+                    n.setTime(t);
+                    var dn = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
+                    d = n.getDay();
+                    m = n.getMonth() + 1;
+                    y = n.getFullYear()
+                    var date = dn[d] + ", " + (n.getDate() < 10 ? "0" : "") + n.getDate() + "/" + (m < 10 ? "0" : "") + m + "/" + y;
+                    document.getElementById("codepro-date").innerHTML = date;
+                </script>
+            </div>
+        </div>
+        <!-- End -->
+    </div>
+    <!-- End -->
+
+    <!-- Sidenav -->
+    <div class="sidenav">
+        <div class="profile">
+            <!-- <img src="https://imdezcode.files.wordpress.com/2020/02/imdezcode-logo.png" alt="" width="100" height="100"> -->
+            <img src="images/phl.jpg" alt="" width="120" height="120">
+
+            <div class="name">
+                Pham Huu Loc
+            </div>
+            <div class="job">
+                Software Developer
+            </div>
+        </div>
+
+        <div class="sidenav-url">
+            <div class="url">
+                <a href="#profile">Profile</a>
+                <hr align="center">
+            </div>
+            <div class="url">
+                <a href="#payment">QR Code</a>
+                <hr align="center">
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+
+    <!-- Main -->
+    <div class="main-payment">
+        <div class="image-container">
+            <div class="row">
+                <div class="col">
+                    <img src="images/z4319755194500_26e2b779f247a43d809def56697a0c2f.jpg" alt="" width="80%">
+                    <button onclick="copyTextVCB()">Copy</button>
+                </div>
+                <div class="col">
+                    <img src="images/z4319755196833_ae77f5b0ceb6c6dbfb2576dd65f94fc6.jpg" alt="" width="85%" >
+                    <button onclick="copyTextMM()">Copy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var profileLink = document.querySelector('a[href="#profile"]');
+            var paymentLink = document.querySelector('a[href="#payment"]');
+
+            paymentLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                alert("You are on the payment page!");
+            });
+
+            profileLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                window.location.href = "index.html";
+            });
+        });
+    </script>
+    
+</body>
+</html>
