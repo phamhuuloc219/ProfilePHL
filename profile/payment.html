@@ -81,6 +81,10 @@
                 <a href="#payment">QR Code</a>
                 <hr align="center">
             </div>
+            <div class="url">
+                <a href="#random">Random</a>
+                <hr align="center">
+            </div>
         </div>
     </div>
     <!-- End -->
@@ -106,6 +110,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             var profileLink = document.querySelector('a[href="#profile"]');
             var paymentLink = document.querySelector('a[href="#payment"]');
+            var randomLink = document.querySelector('a[href="#random"]');
 
             paymentLink.addEventListener('click', function(event) {
                 event.preventDefault();
@@ -116,8 +121,38 @@
                 event.preventDefault();
                 window.location.href = "index.html";
             });
+
+            randomLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                window.location.href = "random.html";
+            });
         });
     </script>
     
+    <script>//<![CDATA[
+        const disabledKeys = ["c", "C", "x", "J", "u", "I"];
+        const showAlert = e => {
+        e.preventDefault();
+        return alert("Sorry, you can't view or copy source codes this way!");
+        }
+        document.addEventListener("contextmenu", e => {
+        showAlert(e);
+        });
+        document.addEventListener("keydown", e => {
+        // calling showAlert() function, if the pressed key matched to disabled keys
+        if((e.ctrlkey && disabledKeys.includes (e.key)) || e.key === "F12") {
+        showAlert(e);
+        }
+        });
+        winndow.addEventListener("load", function(){
+        try {
+        !function t(n) {
+        1 === ("" + n / n).length && 0 !== n || function() {}.constructor("debugger")(),t(++n)
+        }(0)
+        } catch (n) {
+        setTimeout(t, 100)
+        }
+        });
+    //]]></script>
 </body>
 </html>

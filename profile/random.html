@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Random</title>
+        <link rel="preconnect" href="https://randomwheel.net/assets/"/>
+        <link rel="dns-prefetch" href="https://randomwheel.net/assets/"/>
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <script>
+            var CDN_DOM = "https://randomwheel.net/assets/";
+        </script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NE0N77XJY1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+
+            gtag('config', 'G-NE0N77XJY1');
+        </script>
+    </head>
+    <body>
+        <link rel="stylesheet" href="https://randomwheel.net/assets/styles/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://randomwheel.net/assets/styles/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://randomwheel.net/assets/styles/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://randomwheel.net/assets/styles/css/main.min.css">
+        <style>
+            * {
+                font-display: swap;
+            }
+
+            .dark header .logo,.wheel-tab-select ul.wheel-tab-select-listt li.active,.wheel-tab-select ul.wheel-tab-select-listt li:hover {
+                background: rgba(0,0,0,.3)
+            }
+
+            .list-block input[type=color],.spin_pin {
+                z-index: 1;
+                left: 0;
+                position: absolute;
+                overflow: hidden
+            }
+
+            .spin_pin,.wheel-blocks .wheel-block .wheel-item .item-blocks .block-image img,main#main div.main-wheel div.wheel-operations div.operation-area div.area-list div.list-block div.name {
+                width: 100%
+            }
+
+            .wheel-block {
+                display: flex;
+                flex-direction: column
+            }
+
+            .theme-listing .listing-block .listing-item div.radio>div,.wheel-block>div,main#main div.main-wheel.fullScreen .wheel-block .wheel-area>.items>div {
+                flex: 1
+            }
+
+            .wheel-block .wheel-title {
+                max-height: 60px
+            }
+
+            main#main div.main-wheel.fullScreen .wheel-block {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 999;
+                margin-bottom: 0
+            }
+
+            main#main div.main-wheel.fullScreen .wheel-block .wheel-area {
+                align-items: stretch
+            }
+
+            .modal .modal-dialog .modal-content .modal-body .form-group div.theme-listing div.listing-block label.listing-item,main#main div.main-wheel .wheel-block .wheel-area>.items {
+                position: relative
+            }
+
+            main#main div.main-wheel.fullScreen .wheel-block .wheel-area>.items {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch
+            }
+
+            main#main div.main-wheel.fullScreen .wheel-block .wheel-area>.items .area-buttons {
+                max-height: 50px
+            }
+
+            main#main div.main-wheel div.wheel-block div.wheel-area>.items div.area-wheel {
+                overflow: hidden
+            }
+
+            main#main div.main-wheel div.wheel-block div.wheel-area div.area-wheel img {
+                max-height: 100%;
+                max-width: 100%;
+                width: auto;
+                height: auto
+            }
+
+            .the_wheel canvas {
+                max-width: 100%;
+                max-height: -webkit-fill-available;
+                aspect-ratio: auto 700/700
+            }
+
+            @media only screen and (max-width: 1023px) {
+                .the_wheel canvas {
+                    height:auto
+                }
+            }
+
+            :root {
+                --spin-pin-color: #4E81D9
+            }
+
+            .dark {
+                --spin-pin-color: #2B2B36
+            }
+
+            .spin_pin {
+                margin: 0 auto;
+                right: 0;
+                top: 35px;
+                height: 50px
+            }
+
+            .spin_pin svg {
+                height: 45px;
+                filter: drop-shadow(0px 3px 1px #000)
+            }
+
+            .hidden {
+                display: none!important
+            }
+
+            main#main div.main-wheel div.wheel-operations div.operation-buttons .button {
+                min-width: 20px
+            }
+
+            body main#main div.main-wheel div.wheel-operations div.operation-area div.area-list {
+                height: 525px
+            }
+
+            .list-block input[type=color] {
+                width: 35px;
+                height: 35px;
+                padding: 0;
+                border: none;
+                opacity: 0
+            }
+
+            main#main div.main-wheel div.wheel-operations div.operation-area div.area-list div.list-block div.buttons {
+                position: relative;
+                display: none
+            }
+
+            .color-listing.theme-listing .listing-block label.listing-item:hover>div.radio>span.remove,main#main div.main-wheel[data-wheel-type=name] div.wheel-operations div.operation-area div.area-list div.list-block div.buttons,main#main div.main-wheel[data-wheel-type=number] div.wheel-operations div.operation-area div.area-list div.list-block div.buttons {
+                display: inline-block
+            }
+
+            main#main div.main-wheel[data-wheel-type=name] div.wheel-operations div.operation-area div.area-list div.list-block div.name,main#main div.main-wheel[data-wheel-type=number] div.wheel-operations div.operation-area div.area-list div.list-block div.name {
+                max-width: calc(100% - 145px)
+            }
+
+            .button.autofill-button,.button.order-az-button,.button.shuffle-button {
+                opacity: .5
+            }
+
+            main#main div.main-wheel[data-wheel-type=name] div.wheel-operations .button.order-az-button,main#main div.main-wheel[data-wheel-type=name] div.wheel-operations .button.shuffle-button,main#main div.main-wheel[data-wheel-type=number] div.wheel-operations .button.autofill-button,main#main div.main-wheel[data-wheel-type=letter] div.wheel-operations .button.shuffle-button,main#main div.main-wheel[data-wheel-type=letter] div.wheel-operations .button.order-az-button {
+                opacity: 1
+            }
+
+            .theme-listing .listing-block .listing-item div.radio {
+                display: flex;
+                flex-direction: row;
+                align-items: stretch
+            }
+
+            .theme-listing>div>div {
+                max-width: none;
+                width: auto;
+                flex: 1;
+                display: inline-block
+            }
+
+            .modal .modal-dialog .modal-content .modal-body .form-group div.theme-listing div.listing-block label.listing-item input[type=color] {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                padding: 0;
+                bottom: 0;
+                margin: 0;
+                border: none;
+                background: 0 0;
+                position: absolute;
+                overflow: hidden
+            }
+
+            #selectSheetColumnModal .modal-body a.button,main#main div.main-wheel .area-wheel a.button {
+                background-color: #cae7fd;
+                width: 40px;
+                height: 40px;
+                border-radius: 3px;
+                text-align: center;
+                line-height: 40px;
+                vertical-align: middle;
+                transition-duration: .5s
+            }
+
+            label[for=colorAddNew] {
+                width: 50px!important;
+                height: 50px
+            }
+
+            .theme-listing .listing-block label[for=colorAddNew].listing-item>div.radio {
+                position: absolute;
+                display: block;
+                text-align: center;
+                line-height: 45px
+            }
+
+            .color-listing.theme-listing .listing-block label.listing-item>div.radio>span.remove {
+                display: none;
+                position: absolute;
+                right: -3px;
+                top: -3px;
+                border-radius: 50%;
+                width: 10px;
+                height: 10px;
+                background: red;
+                color: #fff;
+                font-size: 8px;
+                padding: 0;
+                overflow: hidden;
+                text-align: center;
+                font-weight: 600;
+                line-height: 8px
+            }
+
+            #selectSheetColumnModal .modal-body a.button {
+                font-size: 12px;
+                display: inline-block;
+                margin: 0 10px 10px
+            }
+
+            #main>.container {
+                min-height: CALC(100vh - 226px)
+            }
+
+            main#main div.main-wheel div.wheel-block,main#main div.main-wheel div.wheel-operations {
+                margin-bottom: 0
+            }
+
+            main#main div.main-wheel {
+                margin-bottom: 60px;
+                position: relative
+            }
+
+            main#main div.main-wheel div.loaderOverlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,.5);
+                border-radius: 12px;
+                z-index: 999;
+                display: none
+            }
+
+            header#header div.middle-header div.buttons div.button .current {
+                cursor: pointer
+            }
+
+            @media only screen and (min-width: 1200px) {
+                header#header div.middle-header div.buttons div.button div.languages div.options {
+                    margin-top:-2px;
+                    animation: .5s fromTop
+                }
+
+                header#header div.middle-header div.buttons div.button {
+                    padding: 0
+                }
+
+                header#header div.middle-header div.buttons div.button>div {
+                    padding: 0 30px
+                }
+            }
+
+            .wheel-tab-select ul.wheel-tab-select-list {
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+                padding: 0;
+                text-align: center;
+                margin: 0
+            }
+
+            .dark header .logo,header .logo {
+                border-radius: 7px;
+                padding: 0 10px 0 5px
+            }
+
+            .wheel-tab-select ul.wheel-tab-select-list li {
+                flex: 1;
+                padding: 10px;
+                font-weight: 600;
+                color: #fff;
+                cursor: pointer;
+                position: relative
+            }
+
+            body.dark main#main div.main-wheel div.wheel-block div.wheel-tab-select {
+                background-color: #2b2b36
+            }
+
+            .wheel-tab-select {
+                background: #4e81d9;
+                border-top: 1px solid rgba(0,0,0,.3)
+            }
+
+            .wheel-tab-select ul.wheel-tab-select-list li.active:after,.wheel-tab-select ul.wheel-tab-select-list li:hover:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: calc(50% - 12px);
+                width: 24px;
+                height: 7px;
+                background-color: #f4faff;
+                border-radius: 5px 5px 0 0
+            }
+
+            .wheel-block .wheel-tab-select {
+                max-height: 44px
+            }
+
+            #app {
+                padding: 0
+            }
+
+            header#header div.middle-header {
+                padding: 0;
+                margin: 0
+            }
+
+            main#main:before {
+                height: 0
+            }
+
+            body.dark {
+                color: #fff
+            }
+
+            div.logo a {
+                display: block
+            }
+
+            main#main.wheels div.wheels-listing div.listing-area div.area-content div.listing-block a.listing-item div.item-description,.wheel-blocks .wheel-block .wheel-item .item-blocks .block-desc,body main#main div.blog-listing div.listing-block a.listing-item div.item-details div.item-title,body main#main.home div.popular-articles div.articles-listing div.listing-block a.listing-item div.item-details div.item-title {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical
+            }
+
+            body main#main div.blog-listing div.listing-block a.listing-item div.item-details div.item-desc,body main#main.home div.popular-articles div.articles-listing div.listing-block a.listing-item div.item-details div.item-desc {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical
+            }
+
+            body main#main div.widget div.widget-content div.blog-list a.listing-block div.block-title {
+                overflow: hidden;
+                display: -webkit-inline-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical
+            }
+
+            .area-wheel .button.full-screen,.main-wheel.fullScreen .area-buttons,.main-wheel.fullScreen .wheel-tab-select,main#main div.main-wheel div.wheel-operations div.operation-area div.area-list div.list-block div.name br {
+                display: none
+            }
+
+            main#main div.main-wheel div.wheel-operations div.operation-area div.area-list div.list-block div.name * {
+                display: inline;
+                white-space: nowrap
+            }
+
+            ::placeholder {
+                color: grey!important;
+                opacity: 1
+            }
+
+            :-ms-input-placeholder {
+                color: grey
+            }
+
+            ::-ms-input-placeholder {
+                color: grey
+            }
+
+            .main-wheel.fullScreen .spin_pin {
+                top: -20px
+            }
+
+            main#main div.main-wheel .area-wheel a.button {
+                font-size: 0;
+                margin: 10px 10px 10px 40px;
+                position: absolute;
+                z-index: 999
+            }
+
+            .main-wheel.fullScreen .area-wheel .button.full-screen {
+                display: inline-block;
+                margin-left: 20px
+            }
+
+            body main#main.blog div.blog-header .page-title {
+                width: 95%
+            }
+
+            body main#main.blog div.blog-header .page-title div.name {
+                font-size: 20px
+            }
+
+            header .logo {
+                background: rgba(255,255,255,.5)
+            }
+
+            header .logo img {
+                max-height: 75px;
+                filter: drop-shadow(0 0 20px #CFD8DC)
+            }
+
+            .dark header .logo img {
+                max-height: 75px;
+                filter: drop-shadow(0 0 0px #CFD8DC)
+            }
+
+            .wheel-blocks .wheel-block .wheel-item .item-blocks .block-title {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical
+            }
+
+            .wheel-blocks .wheel-block .wheel-item .item-blocks .block-image {
+                width: 20%;
+                display: inline-block;
+                overflow: hidden;
+                padding: 0 10px 10px 0
+            }
+
+            div.clear {
+                clear: both
+            }
+
+            @media only screen and (max-width: 575px) {
+                body {
+                    font-smooth:never
+                }
+
+                body main#main div.main-wheel div.wheel-block div.wheel-area div.area-buttons a.button {
+                    margin-right: 0
+                }
+
+                body main#main div.main-wheel .area-wheel a.button {
+                    top: 0px;
+                    right: 0
+                }
+
+                body main#main div.main-wheel .spin_pin {
+                    top: 50px
+                }
+
+                body main#main div.main-wheel.fullScreen .spin_pin {
+                    top: 0
+                }
+
+                main#main div.main-wheel .spin_pin svg {
+                    height: 30px
+                }
+
+                body main#main div.main-wheel div.wheel-block div.wheel-area div.area-wheel {
+                    padding: 15px 3px 0
+                }
+
+                body main#main div.main-wheel div.wheel-block div.wheel-area {
+                    padding: 5px
+                }
+
+                body main#main>.container>.row>.col-12 {
+                    padding-left: 5px;
+                    padding-right: 5px
+                }
+
+                body main#main.home div.popular-articles div.articles-listing div.listing-block a.listing-item figure.item-image {
+                    width: auto;
+                    height: auto
+                }
+
+                body header .middle-header .container .row>.col-xl-2.col-4 {
+                    padding: 0 2px
+                }
+            }
+
+            body main#main div.main-wheel.readonly div.wheel-operations div.operation-area div.area-list {
+                height: 481px;
+            }
+
+            .pagination-btn {
+                height: 60px;
+                background: #4b7cd7;
+                border-radius: 3px;
+                display: block;
+                width: 100%;
+                text-align: center;
+                line-height: 60px;
+                margin-bottom: 60px;
+                font-family: "OpenSans SemiBold";
+                font-size: 18px;
+                color: #fff;
+                transition-duration: .5s
+            }
+
+            .pagination-container {
+                display: flex;
+                flex-direction: row
+            }
+
+            .pagination-container>* {
+                flex: 1;
+                margin: 0 5px;
+            }
+
+            main#main.wheels div.wheels-listing div.listing-area div.area-content div.listing-block a.listing-item {
+                display: inline-block;
+                width: 100%;
+            }
+
+            main#main.wheels div.wheels-listing div.listing-area div.area-content div.listing-block a.listing-item div.item-description {
+                margin: 0 10px 10px 10px;
+                min-height: 48px;
+            }
+
+            main#main.wheels div.wheels-header .page-menu ul li {
+                color: #fff;
+            }
+
+            .bs-tooltip-top {
+                top: -15px!important
+            }
+
+            .wheelLogo {
+                display: none;
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background: url(/assets/favicon/android-icon-192x192.png) 0 0/contain;
+                left: CALC(50% - 50px);
+                top: CALC(50% - 50px)
+            }
+
+            .area-wheel.the_wheel {
+                position: relative;
+                max-height: 700px
+            }
+
+            body:not(.dark) main#main {
+                background: #f8f5f2
+            }
+
+            .pagination-btn,.wheel-tab-select,body.dark header#header div.middle-header div.items,div#side-opener,footer#footer div.bottom-footer,header#header div.middle-header,main#main div.faqs-area div.section-content div.accordion div.card div.card-header button:hover,main#main div.faqs-area div.section-content div.accordion div.card div.card-header button:not(.collapsed),main#main div.main-wheel div.wheel-block div.wheel-area div.area-buttons a.button:hover,main#main div.main-wheel div.wheel-block div.wheel-title,main#main div.main-wheel div.wheel-operations div.operation-buttons,main#main.blog div.blog-header,main#main.blog div.blog-listing div.listing-block a.listing-item:hover div.item-details div.item-button,main#main.home div.popular-articles div.articles-listing div.listing-block a.listing-item:hover,main#main.wheels div.wheels-header,.modal .modal-dialog .modal-content .modal-footer a.footer-button,.modal .modal-dialog .modal-content .modal-header.modal-header-2,.modal .modal-dialog .modal-content .modal-body .form-group div.form-item.form-item-check-button label.checkbox input:checked~div.checkbox, .modal .modal-dialog .modal-content .modal-footer .footer-buttons a.button.remove, header#header div.middle-header div.buttons div.button div.wheel-area div.opener div.opener-buttons a.user-button.register, main#main.wheels div.wheels-listing div.listing-area div.area-footer a.footer-button:hover,.track-inner, .track-inner2,.thumb, .thumb2 {
+                background: #078080;
+                background-color: #078080!important
+            }
+
+            main#main div.wheel-blocks div.wheel-block div.wheel-item div.item-blocks div.item-block:hover div.block-title,main#main div.widget div.widget-content div.blog-list a.listing-block:hover div.block-title,main#main div.widget div.widget-head div.widget-title div.name,main#main.blog div.blog-listing div.listing-block a.listing-item div.item-details div.item-button div.text {
+                color: #078080
+            }
+
+            body:not(.dark) header#header div.middle-header div.buttons div.button:hover,body:not(.dark) header#header div.middle-header div.wnames:hover {
+                background: rgba(255,255,255,.1)!important
+            }
+
+            main#main.wheels div.wheels-header .page-menu ul li {
+                border-right-color: rgba(0,0,0,.1)
+            }
+
+            body:not(.dark) #main.page>.container,main#main div.faqs-area div.section-content div.accordion div.card div.card-body,main#main div.faqs-area div.section-content div.accordion div.card div.card-header button,main#main div.main-wheel div.wheel-block div.wheel-area,main#main div.main-wheel div.wheel-operations div.operation-area,main#main div.wheel-blocks div.wheel-block div.wheel-item,main#main div.widget,main#main.blog div.blog-area div.blog-content div.content-area,main#main.blog div.blog-listing div.listing-block a.listing-item div.item-details,main#main.home div.popular-articles div.articles-listing div.listing-block a.listing-item,main#main.wheels div.wheels-listing div.listing-area,main#main.wheels div.wheels-listing div.listing-area div.area-content div.listing-block a.listing-item {
+                background: #fffffe
+            }
+
+            main#main div.main-wheel div.wheel-operations div.operation-area div.area-list::-webkit-scrollbar-thumb {
+                background: rgba(0,0,0,.2)
+            }
+
+            main#main div.main-wheel div.wheel-operations div.operation-area div.area-form,main#main div.main-wheel div.wheel-operations div.operation-area div.area-form button,main#main div.wheel-blocks div.wheel-block div.wheel-item div.item-header:before,main#main div.widget div.widget-head div.widget-title:before,main#main.contact div.contact-area form.contact-form div.form-title:after,main#main.page div.page-area .page-title:before,main#main.wheels div.wheels-listing div.listing-area div.area-header div.area-title:before {
+                background-color: rgba(0,0,0,.1)
+            }
+
+            #selectSheetColumnModal .modal-body a.button,main#main div.main-wheel .area-wheel a.button,main#main div.main-wheel div.wheel-block div.wheel-area div.area-buttons a.button {
+                background-color: rgba(7,128,128,.4)
+            }
+
+            main#main div.widget div.widget-head div.widget-title div.icon img {
+                filter: none
+            }
+
+            #main.page>.container {
+                padding-top: 20px;
+                border-radius: 10px;
+                padding-bottom: 20px
+            }
+
+            #main.page>.container p:last-child {
+                margin-bottom: 0
+            }
+
+            #main.page {
+                padding-bottom: 60px
+            }
+
+            body:not(.dark) .what-about {
+                margin: 30px 0;
+                background: #fff;
+                padding: 30px;
+                border-radius: 15px
+            }
+
+            body.dark main#main.contact div.contact-area form.contact-form div.form-group div.form-item.form-item-text-icon,body.dark main#main.wheels div.wheels-listing div.listing-area div.area-content div.listing-block a.listing-item {
+                background-color: transparent
+            }
+
+            body.dark #main.page>.container {
+                background-color: #2c2f3c
+            }
+
+            body.dark .what-about {
+                margin: 30px 0;
+                background: #2c2f3c;
+                padding: 30px;
+                border-radius: 15px
+            }
+
+            body.dark #main.page>.container div[data-custom-class=body] * {
+                color: #fff!important;
+                background: 0 0!important
+            }
+
+            body header#header div.middle-header div.buttons div.button div.changer div.change.active {
+                background: 0 0
+            }
+
+            header#header div.middle-header div.buttons div.button div.changer div.change div.icon {
+                width: 30px;
+                height: 30px
+            }
+
+            body.dark .btn-default {
+                color: #fff
+            }
+
+            div#side-opener div.changer div.change {
+                background: linear-gradient(99.21deg,#56a2a4 43.02%,#078080 95.02%)
+            }
+
+            main#main div.what-about div.section-desc *, main#main div.what-about div.section-desc * * {
+                font-size: 1.2rem !important;
+                color: inherit !important;
+            }
+
+            main#main div.main-wheel div.wheel-operations div.operation-area div.area-list div.list-block div.name > span {
+                background-color: transparent !important;
+                background: transparent !important;
+            }
+        </style>
+        <script>
+            localStorage.darkTheme || localStorage.setItem("darkTheme", "off"),
+            "on" == localStorage.darkTheme && document.body.classList.add("dark");
+        </script>
+        <script src="https://randomwheel.net/assets/scripts/jquery-3.4.1.min.js"></script>
+        <!-- App -->
+        <div id="app" class="container-fluid">
+            <!-- General Container -->
+            <div id="general-container">
+                <header id="header">
+                    <div class="middle-header row align-items-center">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-xl-10 col-8">
+                                    <div class="items">
+                                            <div class="buttons">
+                                                <div class="button button-color">
+                                                    <div class="changer">
+                                                        <div class="title">Mode: </div>
+                                                        <div class="change" style="width:24px!important;height:24px!important;">
+                                                            <div class="icon" style="left:0!important;"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <main id="main" class="home">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div id="tsparticles"></div>
+                                <div class="main-wheel">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-12 mb-3">
+                                            <div class="wheel-block">
+                                                <div class="wheel-title">
+                                                    <span>RandomWheel</span>
+                                                </div>
+                                                <div class="wheel-tab-select">
+                                                    <ul class="wheel-tab-select-list">
+                                                        <li>Names</li>
+                                                        <li>Yes or No</li>
+                                                        <li>Letter</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="wheel-area" id="wheel-area-img">
+                                                    <div class="items">
+                                                        <div class="area-buttons">
+                                                            
+                                                            <a href="#" class="button full-screen">
+                                                                <img src="https://randomwheel.net/assets/images/icons/full.svg" alt="">
+                                                            </a>
+                                                            <!--a href="#" class="button share-wheel">
+                                                                <img src="https://randomwheel.net/assets/images/icons/share-2.svg" alt="">
+                                                            </a-->
+                                                        </div>
+                                                        <div class="spin_pin">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 40 40" style="enable-background:new 0 0 40 40;" xml:space="preserve">
+                                                                <g>
+                                                                    <polygon style="fill:#78909C;" points="2.165,11.5 37.835,11.5 20,30.274  "/>
+                                                                    <path style="fill:#455A64;" d="M36.671,12L20,29.548L3.329,12H36.671 M39,11H1l19,20L39,11L39,11z"/>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="area-wheel the_wheel">
+                                                            <canvas  onclick="$activeSpin.startSpin();" id="canvas" width="700" height="700"></canvas>
+                                                            <a href="#" class="button full-screen">
+                                                                <img src="https://randomwheel.net/assets/images/icons/full.svg" alt="">
+                                                            </a>
+                                                            <span class="wheelLogo"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="display:none;" id="tickerSound"></div>
+                                        <div class="col-xl-6 col-12">
+                                            <div class="wheel-operations">
+                                                <div class="operation-buttons">
+                                                    <!-- <a href="#" class="button import-file" data-toggle="tooltip" data-placement="top" title="Load from file">
+                                                        <img src="https://randomwheel.net/assets/images/icons/folder.svg" alt="">
+                                                    </a>
+                                                    <input type="file" class="hidden" id="fileInput" accept=".xls,.xlsx,.ods,.csv,.txt"> -->
+                                                    <a href="#" class="button shuffle-button" data-toggle="tooltip" data-placement="top" title="Shuffle">
+                                                        <img src="https://randomwheel.net/assets/images/icons/exchange.svg" alt="">
+                                                    </a>
+                                                    <a href="#" class="button order-az-button" data-toggle="tooltip" data-placement="top" title="Up Down">
+                                                        <img src="https://randomwheel.net/assets/images/icons/up-down.svg" alt="">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="button settings-button" data-toggle="tooltip" data-placement="top" title="Settings">
+                                                        <img src="https://randomwheel.net/assets/images/icons/settings.svg" alt="">
+                                                    </a>
+                                                    <!--a href="#" class="button platte-button" data-toggle="tooltip" data-placement="top" title="Palette"><img src="https://randomwheel.net/assets/images/icons/palette.svg" alt=""></a-->
+                                                    <a href="#" class="button list-length"></a>
+                                                    <a href="#" class="button clearListBtn" data-toggle="tooltip" data-placement="top" title="Trash">
+                                                        <img src="https://randomwheel.net/assets/images/icons/trash-big.svg" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="operation-area">
+                                                    <div class="area-list"></div>
+                                                    <div class="area-form">
+                                                        <input type="text" id="add-new-to-list" name="wheel-list-item" role="presentation" autocomplete="none" aria-autocomplete="none" placeholder="Add new..." value=" ">
+                                                        <button class="button add-new-to-list">
+                                                            <img src="https://randomwheel.net/assets/images/icons/plus.svg" alt="">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="loaderOverlay"></div>
+                                </div>
+                                <div class="modal fade" id="selectSheetColumnModal" tabindex="-1" aria-labelledby="selectSheetColumnModal" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <div class="modal-head">
+                                                    <div class="modal-title">
+                                                        <div class="title pl-0">Select</div>
+                                                    </div>
+                                                </div>
+                                                <a href="#" class="modal-close" data-dismiss="modal">
+                                                    <img src="https://randomwheel.net/assets/images/icons/close.svg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="sheetList"></div>
+                                                <p>&nbsp;</p>
+                                                <div class="columnList"></div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="#" data-dismiss="modal" onClick="loadFromFile();" class="footer-button button fast-fill-make">OK</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <div class="modal fade" id="winModal" tabindex="-1" aria-labelledby="winModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header modal-header-2">
+                                                <div class="modal-head">
+                                                    <div class="modal-title">
+                                                        <div class="title pl-0">Winner!</div>
+                                                    </div>
+                                                </div>
+                                                <a href="#" class="modal-close" data-dismiss="modal">
+                                                    <img src="https://randomwheel.net/assets/images/icons/close.svg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="winner-text">Charles</div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="footer-buttons">
+                                                    <div class="row">
+                                                        <div class="col-sm-4 col-12">
+                                                            <a href="#" class="button share hidden">
+                                                                <span class="icon">
+                                                                    <img src="https://randomwheel.net/assets/images/icons/share.svg" alt="">
+                                                                </span>
+                                                                <span class="text">Share</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-sm-4 col-12">
+                                                            <a href="#" class="button remove">
+                                                                <span class="icon">
+                                                                    <img src="https://randomwheel.net/assets/images/icons/trash.svg" alt="">
+                                                                </span>
+                                                                <span class="text">Remove</span>
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-sm-4 col-12">
+                                                            <a href="#" class="button closeb" data-dismiss="modal">
+                                                                <span class="icon">
+                                                                    <img src="https://randomwheel.net/assets/images/icons/close.svg" alt="">
+                                                                </span>
+                                                                <span class="text">Close</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="fastFillModal" tabindex="-1" aria-labelledby="fastFillModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <div class="modal-head">
+                                                    <div class="modal-title">
+                                                        <div class="title pl-0">Fast Fill</div>
+                                                    </div>
+                                                </div>
+                                                <a href="#" class="modal-close" data-dismiss="modal">
+                                                    <img src="https://randomwheel.net/assets/images/icons/close.svg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-12">
+                                                        <div class="form-group">
+                                                            <div class="title text-center">First</div>
+                                                            <div class="form-item form-item-text">
+                                                                <input type="text" placeholder="1" class="text-center fastfill-first" value="1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-12">
+                                                        <div class="form-group">
+                                                            <div class="title text-center">Last</div>
+                                                            <div class="form-item form-item-text">
+                                                                <input type="text" placeholder="100" class="text-center fastfill-last" value="24">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-12">
+                                                        <div class="form-group">
+                                                            <div class="title text-center">Step</div>
+                                                            <div class="form-item form-item-text">
+                                                                <input type="text" placeholder="1" class="text-center fastfill-step" value="1">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="#" data-dismiss="modal" class="footer-button button fast-fill-make">OK</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="wheelSettings" tabindex="-1" aria-labelledby="wheelSettingsLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <div class="modal-head">
+                                                    <div class="modal-title">
+                                                        <div class="title pl-0">Wheel Settings</div>
+                                                    </div>
+                                                </div>
+                                                <a href="#" class="modal-close" data-dismiss="modal">
+                                                    <img src="https://randomwheel.net/assets/images/icons/close.svg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                    <div class="title">Theme</div>
+                                                    <div class="theme-listing">
+                                                        <div class=""></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="title">Custom Theme Settings</div>
+                                                        <div class="theme-listing color-listing">
+                                                            <div class="">
+                                                                <div class="listing-block col-lg col-md-2 col-sm-3 col-4">
+                                                                    <label for="theme21" class="listing-item listing-item-2">
+                                                                        <input type="radio" name="theme2" id="theme21">
+                                                                        <div class="radio"></div>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="listing-block col-lg col-md-2 col-sm-3 col-4">
+                                                                    <label for="theme22" class="listing-item listing-item-2">
+                                                                        <input type="radio" name="theme2" id="theme22">
+                                                                        <div class="radio"></div>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="listing-block col-lg col-md-2 col-sm-3 col-4">
+                                                                    <label for="theme23" class="listing-item listing-item-2">
+                                                                        <input type="radio" name="theme2" id="theme23">
+                                                                        <div class="radio"></div>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="listing-block col-lg col-md-2 col-sm-3 col-4">
+                                                                    <label for="theme24" class="listing-item listing-item-2">
+                                                                        <input type="radio" name="theme2" id="theme24">
+                                                                        <div class="radio"></div>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="listing-block col-lg col-md-2 col-sm-3 col-4">
+                                                                    <label for="theme25" class="listing-item listing-item-2">
+                                                                        <input type="radio" name="theme2" id="theme25">
+                                                                        <div class="radio"></div>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="listing-block col-lg col-md-2 col-sm-3 col-4">
+                                                                    <label for="theme26" class="listing-item listing-item-2">
+                                                                        <input type="radio" name="theme2" id="theme26">
+                                                                        <div class="radio"></div>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="listing-block col-lg col-md-2 col-sm-3 col-4">
+                                                                    <label for="theme27" class="listing-item listing-item-2">
+                                                                        <input type="radio" name="theme2" id="theme27">
+                                                                        <div class="radio"></div>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="listing-block col-lg col-md-2 col-sm-3 col-4">
+                                                                    <label for="theme28" class="listing-item listing-item-2">
+                                                                        <input type="radio" name="theme2" id="theme28">
+                                                                        <div class="radio"></div>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="listing-block col-lg col-md-2 col-sm-3 col-4">
+                                                                    <label for="theme29" class="listing-item listing-item-2">
+                                                                        <input type="radio" name="theme2" id="theme29">
+                                                                        <div class="radio"></div>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="listing-block col-lg col-md-2 col-sm-3 col-4">
+                                                                    <label for="theme210" class="listing-item listing-item-2">
+                                                                        <input type="radio" name="theme2" id="theme210">
+                                                                        <div class="radio"></div>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-checks">
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-12">
+                                                                <div class="form-group">
+                                                                    <div class="title">
+                                                                        Spinning time (<span class="spin-time-spn">10</span>
+                                                                        s)
+                                                                    
+                                                                    </div>
+                                                                    <div class="form-item form-item-range">
+                                                                        <div class="wrap">
+                                                                            <input type="range" class="range" min="1" max="40" step="1" value="10">
+                                                                            <div class="track">
+                                                                                <div class="track-inner"></div>
+                                                                            </div>
+                                                                            <div class="thumb"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-12">
+                                                                <div class="form-group">
+                                                                    <div class="title">
+                                                                        Spinning speed (<span class="spin-speed-spn">medium</span>
+                                                                        )
+                                                                    
+                                                                    </div>
+                                                                    <div class="form-item form-item-range">
+                                                                        <div class="wrap">
+                                                                            <input type="range" class="range2" min="0" max="100" step="50" value="50">
+                                                                            <div class="track2">
+                                                                                <div class="track-inner2"></div>
+                                                                            </div>
+                                                                            <div class="thumb2"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-checks">  
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="#" data-dismiss="modal" class="footer-button">Done</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="saveWheelModal" tabindex="-1" aria-labelledby="saveWheelModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <div class="modal-head">
+                                                    <div class="modal-title">
+                                                        <div class="title pl-0">Save Wheel</div>
+                                                    </div>
+                                                </div>
+                                                <a href="#" class="modal-close" data-dismiss="modal">
+                                                    <img src="https://randomwheel.net/assets/images/icons/close.svg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-12">
+                                                        <div class="form-group">
+                                                            <div class="title text-center">Wheel Name :</div>
+                                                            <div class="form-item form-item-text">
+                                                                <input type="text" placeholder="Please enter a name to wheel" class="text-center wheelNameInput" value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="#" data-dismiss="modal" class="footer-button button setanametowheel">OK</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script src="https://randomwheel.net/assets/scripts/plugins.bundle.js"></script>
+                                <script src="https://randomwheel.net/assets/scripts/stw.bundle.2.60.js?_=2.60"></script>
+                                <script>
+
+                                    var systemThemes = ["hsla", ["#5a82c8", "#d54b4e", "#f0bf56", "#2daf5a"], ["#EFC260", "#3AAF69"], ["#236e96", "#15b2d3", "#ffd700", "#f3872f", "#ff598f"], ["#0b2447", "#19376d", "#576cbc", "#a5d7e8"], ["#4d455d", "#e96479", "#f5e9cf", "#7db9b6"], ["#11009e", "#4942e4", "#8696fe", "#c4b0ff"], ["#ffe15d", "#f49d1a", "#dc3535", "#b01e68"], ["#ffb84c", "#f266ab", "#a459d1", "#2cd3e1"], ["#ffe0bd", "#ffcd94", "#eac086", "#ffad60", "#ffe39f"], ["#064273", "#76b6c4", "#7fcdff", "#1da2d8", "#def3f6"], ["#606c38", "#283618", "#f9f1be", "#dda15e", "#bc6c25"]];
+
+                                    var wheelTypeOptions = {
+                                        "normal": {
+                                            "id": 0,
+                                            "name": "Yes or No",
+                                            "type": "normal",
+                                            "theme": ["#EFC260", "#3AAF69"],
+                                            "options": {
+                                                "tickSound": true,
+                                                "winSound": true,
+                                                "loseSound": true,
+                                                "winTitle": "Yes !",
+                                                "loseTitle": "No !",
+                                                "textFontFamily": "Verdana",
+                                                "duration": 10,
+                                                "spins": "medium",
+                                                "removeSelected": false,
+                                                "confetti": true,
+                                                "pinColor": "red",
+                                                "showGuide": false,
+                                                "lockTextColor": true
+                                            },
+                                            "list": [{
+                                                "text": "Yes"
+                                            }, {
+                                                "text": "No",
+                                                "lose": true
+                                            }, {
+                                                "text": "Yes"
+                                            }, {
+                                                "text": "No",
+                                                "lose": true
+                                            }, {
+                                                "text": "Yes"
+                                            }, {
+                                                "text": "No",
+                                                "lose": true
+                                            }, {
+                                                "text": "Yes"
+                                            }, {
+                                                "text": "No",
+                                                "lose": true
+                                            }, {
+                                                "text": "Yes"
+                                            }, {
+                                                "text": "No",
+                                                "lose": true
+                                            }, {
+                                                "text": "Yes"
+                                            }, {
+                                                "text": "No",
+                                                "lose": true
+                                            }, {
+                                                "text": "Yes"
+                                            }, {
+                                                "text": "No",
+                                                "lose": true
+                                            }, {
+                                                "text": "Yes"
+                                            }, {
+                                                "text": "No",
+                                                "lose": true
+                                            }, {
+                                                "text": "Yes"
+                                            }, {
+                                                "text": "No",
+                                                "lose": true
+                                            }, {
+                                                "text": "Yes"
+                                            }, {
+                                                "text": "No",
+                                                "lose": true
+                                            }, {
+                                                "text": "Yes"
+                                            }, {
+                                                "text": "No",
+                                                "lose": true
+                                            }, {
+                                                "text": "Yes"
+                                            }, {
+                                                "text": "No",
+                                                "lose": true
+                                            }]
+                                        },
+                                        "number": {
+                                            "id": 0,
+                                            "name": "Wheel of Numbers",
+                                            "type": "number",
+                                            "theme": "hsla",
+                                            "options": {
+                                                "tickSound": true,
+                                                "winSound": true,
+                                                "loseSound": true,
+                                                "winTitle": "Winner",
+                                                "loseTitle": "",
+                                                "textFontFamily": "Verdana",
+                                                "duration": 10,
+                                                "spins": "medium",
+                                                "removeSelected": false,
+                                                "confetti": true,
+                                                "pinColor": "red",
+                                                "showGuide": false,
+                                                "lockTextColor": false
+                                            },
+                                            "list": [{
+                                                "text": "1"
+                                            }, {
+                                                "text": "2"
+                                            }, {
+                                                "text": "3"
+                                            }, {
+                                                "text": "4"
+                                            }, {
+                                                "text": "5"
+                                            }, {
+                                                "text": "6"
+                                            }, {
+                                                "text": "7"
+                                            }, {
+                                                "text": "8"
+                                            }, {
+                                                "text": "9"
+                                            }, {
+                                                "text": "10"
+                                            }, {
+                                                "text": "11"
+                                            }, {
+                                                "text": "12"
+                                            }, {
+                                                "text": "13"
+                                            }, {
+                                                "text": "14"
+                                            }, {
+                                                "text": "15"
+                                            }, {
+                                                "text": "16"
+                                            }, {
+                                                "text": "17"
+                                            }, {
+                                                "text": "18"
+                                            }, {
+                                                "text": "19"
+                                            }, {
+                                                "text": "20"
+                                            }, {
+                                                "text": "21"
+                                            }, {
+                                                "text": "22"
+                                            }, {
+                                                "text": "23"
+                                            }, {
+                                                "text": "24"
+                                            }]
+                                        },
+                                        "name": {
+                                            "id": 0,
+                                            "name": "Wheel of Names",
+                                            "type": "name",
+                                            "theme": ["#5a82c8", "#d54b4e", "#f0bf56", "#2daf5a"],
+                                            "options": {
+                                                "tickSound": true,
+                                                "winSound": true,
+                                                "loseSound": true,
+                                                "winTitle": "Winner",
+                                                "loseTitle": "",
+                                                "textFontFamily": "Verdana",
+                                                "duration": 10,
+                                                "spins": "medium",
+                                                "removeSelected": false,
+                                                "confetti": true,
+                                                "pinColor": "red",
+                                                "showGuide": false,
+                                                "lockTextColor": true
+                                            },
+                                            "list": [{
+                                                "text": "Emma",
+                                                "segNum": 1
+                                            }, {
+                                                "text": "",
+                                                "segNum": 2
+                                            }, {
+                                                "text": "Oliver",
+                                                "segNum": 3
+                                            }, {
+                                                "text": "Isabella",
+                                                "segNum": 4
+                                            }, {
+                                                "text": "Lucas",
+                                                "segNum": 5
+                                            }, {
+                                                "text": "Charlotte",
+                                                "segNum": 6
+                                            }, {
+                                                "text": "Leo",
+                                                "segNum": 7
+                                            }, {
+                                                "text": "William",
+                                                "segNum": 8
+                                            }, {
+                                                "text": "Sophia",
+                                                "segNum": 9
+                                            }, {
+                                                "text": "Michael",
+                                                "segNum": 10
+                                            }, {
+                                                "text": "Grace",
+                                                "segNum": 11
+                                            }, {
+                                                "text": "James",
+                                                "segNum": 12
+                                            }, {
+                                                "text": "Lily",
+                                                "segNum": 13
+                                            }]
+                                        },
+                                        "letter": {
+                                            "id": 0,
+                                            "name": "Letters Wheel",
+                                            "type": "letter",
+                                            "theme": "hsla",
+                                            "options": {
+                                                "tickSound": true,
+                                                "winSound": true,
+                                                "loseSound": true,
+                                                "winTitle": "Winner",
+                                                "loseTitle": "",
+                                                "textFontFamily": "Verdana",
+                                                "duration": 10,
+                                                "spins": "medium",
+                                                "removeSelected": false,
+                                                "confetti": true,
+                                                "pinColor": "red",
+                                                "showGuide": false,
+                                                "lockTextColor": true
+                                            },
+                                            "list": [{
+                                                "text": "A",
+                                                "segNum": 1
+                                            }, {
+                                                "text": "B",
+                                                "segNum": 2
+                                            }, {
+                                                "text": "C",
+                                                "segNum": 3
+                                            }, {
+                                                "text": "D",
+                                                "segNum": 4
+                                            }, {
+                                                "text": "E",
+                                                "segNum": 5
+                                            }, {
+                                                "text": "F",
+                                                "segNum": 6
+                                            }, {
+                                                "text": "G",
+                                                "segNum": 7
+                                            }, {
+                                                "text": "H",
+                                                "segNum": 8
+                                            }, {
+                                                "text": "I",
+                                                "segNum": 9
+                                            }, {
+                                                "text": "J",
+                                                "segNum": 10
+                                            }, {
+                                                "text": "K",
+                                                "segNum": 11
+                                            }, {
+                                                "text": "L",
+                                                "segNum": 12
+                                            }, {
+                                                "text": "M",
+                                                "segNum": 13
+                                            }, {
+                                                "text": "",
+                                                "segNum": 14
+                                            }, {
+                                                "text": "N",
+                                                "segNum": 15
+                                            }, {
+                                                "text": "O",
+                                                "segNum": 16
+                                            }, {
+                                                "text": "P",
+                                                "segNum": 17
+                                            }, {
+                                                "text": "Q",
+                                                "segNum": 18
+                                            }, {
+                                                "text": "R",
+                                                "segNum": 19
+                                            }, {
+                                                "text": "S",
+                                                "segNum": 20
+                                            }, {
+                                                "text": "T",
+                                                "segNum": 21
+                                            }, {
+                                                "text": "U",
+                                                "segNum": 22
+                                            }, {
+                                                "text": "V",
+                                                "segNum": 23
+                                            }, {
+                                                "text": "W",
+                                                "segNum": 24
+                                            }, {
+                                                "text": "Y",
+                                                "segNum": 25
+                                            }, {
+                                                "text": "Z",
+                                                "segNum": 26
+                                            }],
+                                            "slug": "wheel-of-names"
+                                        }
+                                    };
+                                </script>
+                                <script src="https://randomwheel.net/assets/scripts/stw.gen.2.60.js?_=2.60"></script>
+                                <script>
+
+                                    $(document).ready(function(e) {
+
+                                        if (!localStorage.generalSound) {
+                                            localStorage.setItem("generalSound", "on");
+                                        } else {
+                                            if (localStorage.generalSound == "off") {
+                                                $(".sound-on-off").click();
+                                            }
+                                        }
+
+                                        var lastWheel = getLastWheelFromLocal();
+
+                                        if (lastWheel == false) {
+
+                                            $activeSpin = new spinTheWheel($(".the_wheel"),wheelTypeOptions.letter);
+
+                                        } else {
+
+                                            $activeSpin = new spinTheWheel($(".the_wheel"),lastWheel);
+
+                                        }
+
+                                    });
+                                </script>                
+        </div>
+        <script src="https://randomwheel.net/assets/scripts/popper.min.js"></script>
+        <script src="https://randomwheel.net/assets/scripts/bootstrap.min.js"></script>
+        <script src="https://randomwheel.net/assets/scripts/owl.carousel.min.js"></script>
+        <script src="https://randomwheel.net/assets/scripts/main.2.57.js"></script>
+
+        <script>//<![CDATA[
+            const disabledKeys = ["c", "C", "x", "J", "u", "I"];
+            const showAlert = e => {
+            e.preventDefault();
+            return alert("Sorry, you can't view or copy source codes this way!");
+            }
+            document.addEventListener("contextmenu", e => {
+            showAlert(e);
+            });
+            document.addEventListener("keydown", e => {
+            // calling showAlert() function, if the pressed key matched to disabled keys
+            if((e.ctrlkey && disabledKeys.includes (e.key)) || e.key === "F12") {
+            showAlert(e);
+            }
+            });
+            winndow.addEventListener("load", function(){
+            try {
+            !function t(n) {
+            1 === ("" + n / n).length && 0 !== n || function() {}.constructor("debugger")(),t(++n)
+            }(0)
+            } catch (n) {
+            setTimeout(t, 100)
+            }
+            });
+    //]]></script>
+    </body>
+</html>
